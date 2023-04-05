@@ -1,0 +1,42 @@
+<!-- This code defines the RESTful API endpoints for inventory management. The GET /inventory endpoint retrieves all inventory items, the GET /inventory/:id endpoint retrieves a single inventory item by its ID, the POST /inventory endpoint adds a new inventory item, the PUT /inventory/:id endpoint updates an existing inventory item, and the DELETE /inventory/:id endpoint removes an inventory item by its ID. We are also emitting Socket.IO events whenever an inventory item is added, updated, or removed.
+
+Step 4: Set up the Front-end Interface (Optional)
+
+We can create a simple front-end interface to display the inventory in real-time. Create a new file called index.html in the project folder and add the following code:
+
+```html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory Management System</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Inventory</h1>
+    <ul id="inventory"></ul>
+
+    <form id="add-inventory-form">
+      <h2>Add Inventory Item</h2>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" required>
+      <lable for="price">Price</lable>
+      <input type="number"id="price" price="price" required>
+      <label for="description">Description</label>
+      <input type="text" id="description" description="description" required>
+      <button type="submit">Add Item</button>
+    </form>
+
+    <script>
+      const socket = io();
+      
+      const inventoryList = document.getElementById('inventory');
+      const addInventoryForm = document.getElementById('add-inventory-form');
+
+      socket.on('connect', () => {
+        console.log('Connected to the server');
+      })
+        </script>
+</body>
+</html>
